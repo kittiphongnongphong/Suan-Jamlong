@@ -1,68 +1,55 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>สวนจำลอง</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>สวนจำลอง</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #f5f5f5;
-        }
-
-        header {
-            background: #2e7d32;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .container {
-            padding: 20px;
-        }
-
-        .card {
-            background: white;
-            padding: 20px;
-            margin: 10px 0;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        img {
-            width: 100%;
-            border-radius: 10px;
-        }
-    </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-    <h1>🌿 สวนจำลอง</h1>
-    <p>แหล่งเรียนรู้และพักผ่อน</p>
+  <h1>🌿 สวนจำลอง</h1>
+  <p>พักผ่อน • เรียนรู้ • ธรรมชาติ</p>
 </header>
 
-<div class="container">
+<nav>
+  <a href="#about">เกี่ยวกับ</a>
+  <a href="#gallery">บรรยากาศ</a>
+  <a href="#contact">ติดต่อ</a>
+</nav>
 
-    <div class="card">
-        <h2>เกี่ยวกับสวน</h2>
-        <p>สวนจำลองเป็นพื้นที่สำหรับศึกษาและพักผ่อน เหมาะสำหรับทุกวัย</p>
-    </div>
+<section id="hero">
+  <h2>ยินดีต้อนรับสู่สวนของเรา</h2>
+</section>
 
-    <div class="card">
-        <h2>ภาพบรรยากาศ</h2>
-        <img src="https://picsum.photos/800/400" alt="สวน">
-    </div>
+<section id="about" class="container">
+  <h2>เกี่ยวกับสวน</h2>
+  <p>
+    สวนจำลองเป็นพื้นที่สำหรับพักผ่อนและเรียนรู้ธรรมชาติ เหมาะสำหรับทุกวัย
+  </p>
+</section>
 
-    <div class="card">
-        <h2>ติดต่อ</h2>
-        <p>โทร: 08X-XXX-XXXX</p>
-    </div>
+<section id="gallery" class="container">
+  <h2>ภาพบรรยากาศ</h2>
+  <img src="images/garden.jpg" alt="สวน">
+</section>
 
-</div>
+<section id="contact" class="container">
+  <h2>ติดต่อ</h2>
+  <p>📞 08X-XXX-XXXX</p>
+  <p>📍 คลอง15</p>
+
+  <a class="btn" href="https://maps.google.com" target="_blank">
+    เปิดแผนที่
+  </a>
+</section>
+
+<footer>
+  <p>© 2026 สวนจำลอง</p>
+</footer>
 
 </body>
 </html>
