@@ -78,10 +78,8 @@ nav a {
 
 /* dots */
 .dots {
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
   text-align: center;
+  margin-top: 10px;
 }
 
 .dot {
@@ -89,13 +87,13 @@ nav a {
   width: 10px;
   height: 10px;
   margin: 5px;
-  background: rgba(255,255,255,0.5);
+  background: #ccc;
   border-radius: 50%;
   cursor: pointer;
 }
 
 .dot.active {
-  background: white;
+  background: #2e7d32;
 }
 
 img {
