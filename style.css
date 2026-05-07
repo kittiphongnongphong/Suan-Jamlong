@@ -180,6 +180,8 @@ footer {
   user-select: none;
 
   transform-origin: center center;
+
+    display: block;
 }
 
 .popup-content:active {
@@ -253,7 +255,8 @@ footer {
     margin: 6px;
   }
 
-  .slider {
+  /* เฉพาะ slider รูปสินค้า */
+  #gallery .slider {
     height: 250px;
   }
 

@@ -78,7 +78,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
       <i class="fa-solid fa-phone"></i>
 
-      084-7611-692 (วรรณา)
+      084-761-1692 (วรรณา)
 
     </a>
   </p>
@@ -214,9 +214,10 @@ let panzoomInstance = null;
 /* เปิด popup */
 mapImage.onclick = () => {
 
-  popup.style.display = "flex";
+popup.style.display = "flex";
 
-  popupImg.src = mapImage.src;
+popupImg.style.transform = "scale(1)";
+popupImg.src = mapImage.src;
 
   /* reset */
   if (panzoomInstance) {
