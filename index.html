@@ -217,6 +217,9 @@ mapImage.onclick = () => {
 popup.style.display = "flex";
 
 popupImg.style.transform = "scale(1)";
+popupImg.style.width = "auto";
+popupImg.style.height = "auto";
+
 popupImg.src = mapImage.src;
 
   /* reset */
@@ -227,7 +230,6 @@ popupImg.src = mapImage.src;
   panzoomInstance = Panzoom(popupImg, {
     maxScale: 5,
     minScale: 1,
-    contain: "outside"
   });
 
   /* mouse wheel zoom */
