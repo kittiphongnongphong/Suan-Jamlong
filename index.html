@@ -3,11 +3,16 @@
 <head>
   <meta name="format-detection" content="telephone=no, address=no, email=no">
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>สวนจำลอง</title>
 
   <link rel="stylesheet" href="style.css">
+
+  <!-- Panzoom -->
+  <script src="https://cdn.jsdelivr.net/npm/@panzoom/panzoom/dist/panzoom.min.js"></script>
 </head>
 
 <body>
@@ -21,12 +26,9 @@
   <a href="#about">เกี่ยวกับ</a>
   <a href="#gallery">ตัวอย่างภาพ</a>
   <a href="#contact">ติดต่อ</a>
+  <a href="#map">แผนที่</a>
 </nav>
-<!--
-<section id="hero">
-  <h2>ยินดีต้อนรับสู่สวนของเรา</h2>
-</section>
--->
+
 <section id="about" class="container">
   <h2>เกี่ยวกับสวน</h2>
   <p>
@@ -41,31 +43,97 @@
     <img class="slide active" src="images/suanjamlong.jpg">
     <img class="slide" src="images/Brazil1.jpg">
     <img class="slide" src="images/Brazil3.jpg">
-    
+    <img class="slide" src="images/short3.jpg">
+    <img class="slide" src="images/long3.jpg">
+    <img class="slide" src="images/Iris.jpg">
+    <img class="slide" src="images/green.jpg">
 
     <button class="nav-btn prev">❮</button>
     <button class="nav-btn next">❯</button>
-
-
   </div>
+
   <div class="dots"></div>
 </section>
 
 <section id="contact" class="container">
-  <h2>ติดต่อ</h2>
-  <p> <a href="tel:0838542020">📞 <u>083-854-2020</u> (กิตติพงษ์)</a> </p>
-  <p>📍 หมู่บ้านไม้ดอก-ไม้ประดับ คลอง15 องครักษ์ นครนายก 26120</p>
 
-  <a class="btn" href="https://maps.app.goo.gl/DjfGXDzVY9yPiVrC9" target="_blank">
-    เปิดแผนที่
-  </a>
+  <h2>ติดต่อ</h2>
+
+  <!-- เบอร์ 1 -->
+  <p>
+    <a class="contact-link"
+       href="tel:0838542020">
+
+      <i class="fa-solid fa-phone"></i>
+
+      083-854-2020 (กิตติพงษ์)
+
+    </a>
+  </p>
+
+  <!-- เบอร์ 2 -->
+  <p>
+    <a class="contact-link"
+       href="tel:0847611692">
+
+      <i class="fa-solid fa-phone"></i>
+
+      084-7611-692 (วรรณา)
+
+    </a>
+  </p>
+
+  <!-- Facebook -->
+  <p>
+    <a class="facebook-link"
+       href="https://facebook.com/suanjamlong"
+       target="_blank">
+
+      <i class="fa-brands fa-facebook"></i>
+
+      สวนจำลอง-กิตติพงษ์ คลอง15
+
+    </a>
+  </p>
+
 </section>
+
+<section id="map" class="container">
+  <h2>แผนที่</h2>
+
+  <p>
+    📍 หมู่บ้านไม้ดอก-ไม้ประดับ คลอง15 องครักษ์ นครนายก 26120
+  </p>
+  <a class="btn"
+     href="https://maps.app.goo.gl/DjfGXDzVY9yPiVrC9"
+     target="_blank">
+    เปิด GoogleMap
+  </a>
+<p></p>
+  <div class="slider">
+    <img src="images/Map.jpg" id="mapImage">
+  </div>
+
+</section>
+
+<!-- POPUP -->
+<div id="imagePopup" class="popup">
+  <span class="close">&times;</span>
+
+  <div class="popup-wrapper">
+    <img class="popup-content" id="popupImg">
+  </div>
+</div>
 
 <footer>
   <p>© 2026 สวนจำลอง</p>
 </footer>
 
 <script>
+/* =========================
+   SLIDER
+========================= */
+
 const slides = document.querySelectorAll(".slide");
 const prevBtn = document.querySelector(".prev");
 const nextBtn = document.querySelector(".next");
@@ -76,9 +144,14 @@ let interval;
 
 /* สร้าง dots */
 slides.forEach((_, i) => {
+
   const dot = document.createElement("span");
+
   dot.classList.add("dot");
-  if (i === 0) dot.classList.add("active");
+
+  if (i === 0) {
+    dot.classList.add("active");
+  }
 
   dot.addEventListener("click", () => {
     index = i;
@@ -92,6 +165,7 @@ const dots = document.querySelectorAll(".dot");
 
 /* แสดง slide */
 function showSlide() {
+
   slides.forEach(s => s.classList.remove("active"));
   dots.forEach(d => d.classList.remove("active"));
 
@@ -99,26 +173,89 @@ function showSlide() {
   dots[index].classList.add("active");
 }
 
-/* ปุ่ม */
+/* ปุ่ม next */
 nextBtn.onclick = () => {
+
   index = (index + 1) % slides.length;
   showSlide();
 };
 
+/* ปุ่ม prev */
 prevBtn.onclick = () => {
+
   index = (index - 1 + slides.length) % slides.length;
   showSlide();
 };
 
 /* Auto slide */
 function startSlide() {
+
   interval = setInterval(() => {
+
     index = (index + 1) % slides.length;
     showSlide();
+
   }, 3000);
 }
 
 startSlide();
+
+/* =========================
+   MAP POPUP + ZOOM
+========================= */
+
+const mapImage = document.getElementById("mapImage");
+const popup = document.getElementById("imagePopup");
+const popupImg = document.getElementById("popupImg");
+const closeBtn = document.querySelector(".close");
+
+let panzoomInstance = null;
+
+/* เปิด popup */
+mapImage.onclick = () => {
+
+  popup.style.display = "flex";
+
+  popupImg.src = mapImage.src;
+
+  /* reset */
+  if (panzoomInstance) {
+    panzoomInstance.destroy();
+  }
+
+  panzoomInstance = Panzoom(popupImg, {
+    maxScale: 5,
+    minScale: 1,
+    contain: "outside"
+  });
+
+  /* mouse wheel zoom */
+  popup.parentElement?.addEventListener("wheel", panzoomInstance.zoomWithWheel);
+
+};
+
+/* ปิด popup */
+function closePopup() {
+
+  popup.style.display = "none";
+
+  if (panzoomInstance) {
+    panzoomInstance.reset();
+  }
+}
+
+/* ปุ่มปิด */
+closeBtn.onclick = () => {
+  closePopup();
+};
+
+/* กดพื้นหลังปิด */
+popup.onclick = (e) => {
+
+  if (e.target === popup) {
+    closePopup();
+  }
+};
 </script>
 
 </body>
