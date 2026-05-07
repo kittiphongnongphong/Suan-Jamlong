@@ -165,9 +165,10 @@ footer {
 }
 
 .popup-content {
+  display: block;
 
-  width: auto;
-  height: auto;
+  width: auto !important;
+  height: auto !important;
 
   max-width: 95vw;
   max-height: 85vh;
@@ -180,8 +181,6 @@ footer {
   user-select: none;
 
   transform-origin: center center;
-
-    display: block;
 }
 
 .popup-content:active {
